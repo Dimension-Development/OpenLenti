@@ -2,7 +2,7 @@
 
 **Open-Source Sub-Pixel Lenticular Interlacing & Pitch Calibration Engine**
 
-Lightweight, zero-cost Python CLI and library for interlacing multi-frame artwork and generating pitch calibration test charts for ultra-high-resolution flatbed UV printers (optimised for swissQprint Kudu and similar linear-motor machines at 1080/1200 DPI).
+Lightweight, zero-cost Python CLI **and graphical app** for interlacing multi-frame artwork and generating pitch calibration test charts for ultra-high-resolution flatbed UV printers (optimised for swissQprint Kudu and similar linear-motor machines at 1080/1200 DPI).
 
 ## Features
 
@@ -11,14 +11,36 @@ Lightweight, zero-cost Python CLI and library for interlacing multi-frame artwor
 - **Second-surface** horizontal flip for printing on the rear face of lenticular sheets
 - **Pitch calibration charts** with labelled high-contrast bands
 - **Pre-flight validation** that DPI tags survive Ergosoft / Caldera / Onyx RIPs at 100 % scale
+- **Desktop GUI** (Flet) with live preview, progress and log
 
 ## Installation
 
 ```bash
-pip install -e ".[dev]"
+# Core CLI only
+pip install -e .
+
+# CLI + graphical frontend
+pip install -e ".[gui]"
 ```
 
-## Quick Start
+## Graphical app (recommended for operators)
+
+```bash
+openlenti-gui
+# or
+python -m openlenti.gui
+```
+
+The GUI lets you:
+
+- Browse a folder of ordered frames
+- Set DPI / LPI / orientation / second-surface
+- Interlace with a progress indicator
+- Generate labelled pitch-test charts
+- Validate the last output TIFF
+- See a live preview of the result
+
+## CLI Quick Start
 
 ```bash
 # 1. Generate a pitch-test target

@@ -22,13 +22,18 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+gui = [
+    "flet>=0.24",
+]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
+    "flet>=0.24",
 ]
 
 [project.scripts]
 openlenti = "openlenti.cli.main:app"
+openlenti-gui = "openlenti.gui.app:run_gui"
 
 [tool.setuptools.packages.find]
 where = ["."]
