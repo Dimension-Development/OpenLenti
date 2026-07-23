@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "Antigravity AI Coding Agent Framework"}
+    {name = "Dimension-Development"}
 ]
 dependencies = [
     "numpy>=1.24",
