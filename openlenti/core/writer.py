@@ -31,6 +31,10 @@ def write_tiff_from_array(
 
     photometric = {1: "minisblack", 3: "rgb", 4: "separated"}.get(channels, "rgb")
 
+    # Classic TIFF tops out near 4 GiB; switch to BigTIFF with headroom.
+    approx_bytes = int(array.nbytes)
+    use_bigtiff = approx_bytes > 3 * (1024**3)
+
     tifffile.imwrite(
         str(path),
         array,
@@ -39,7 +43,7 @@ def write_tiff_from_array(
         resolutionunit="INCH",
         compression=compression,
         metadata=None,
-        bigtiff=True if (height * width * channels > 2**31) else False,
+        bigtiff=use_bigtiff,
     )
     logger.info("Wrote %s (%d x %d @ %.1f DPI)", path, width, height, dpi[0])
 

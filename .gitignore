@@ -23,6 +23,8 @@ wheels/
 htmlcov/
 .mypy_cache/
 .ruff_cache/
+.venv/
+venv/
 *.tif
 *.tiff
 *.raw
